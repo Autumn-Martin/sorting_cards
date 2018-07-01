@@ -10,4 +10,13 @@ class Guess
     @card = card
   end
 
+  def response_to_array
+    response.split(" ")
+  end
+
+  def correct?
+    if response_to_array[0] == card.value && response_to_array[-1] == card.suit
+      true 
+    end
+  end
 end
