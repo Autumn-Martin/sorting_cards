@@ -91,7 +91,6 @@ class GuessTest < Minitest::Test
     # refute guess.correct? # passes unless guess.corrct returns true
   end
 
-  # def test_if_guess_is_incorrect
   # test if a string response is made into an array
   # this test should pass, & does
   def test_if_response_becomes_an_array
@@ -105,8 +104,9 @@ class GuessTest < Minitest::Test
   def test_for_feedback
     card = Card.new("Queen","Clubs")
     guess = Guess.new("2 of Diamonds",card)
-    assert_equal "Correct!", guess.feedback # this should fail (& does) in this context
-    # refute_equal "Correct!", guess.feedback # this should pass (& does) in this context
+    assert_equal "Incorrect.", guess.feedback # this should pass (&does)
+    # assert_equal "Correct!", guess.feedback # this should fail (& does) in this context
+    refute_equal "Correct!", guess.feedback # this should pass (& does) in this context
   end
 
 
