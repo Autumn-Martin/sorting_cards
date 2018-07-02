@@ -16,15 +16,21 @@ class Guess
     response.split(" ")
   end
 
+  # need to compare the guess to the actual card
   def correct?
     if response_to_array[0] == card.value && response_to_array[-1] == card.suit
-      true
+      true #=> true
+    else
+      false #=> false
     end
   end
 
+  # adds feedback as whether guess is correct or incorrect 
   def feedback
     if response_to_array[0] == card.value && response_to_array[-1] == card.suit
-      p "Correct!" #puts doesn't work here
+      return "Correct!" #puts doesn't work here
+    else
+      return "Incorrect."
     end
   end
 end
