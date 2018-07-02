@@ -87,8 +87,11 @@ class GuessTest < Minitest::Test
   def test_if_guess_is_correct
     card = Card.new("Queen","Clubs")
     guess = Guess.new("2 of Diamonds",card)
-    assert guess.correct? # fail unless guess.correct returns true
-    # refute guess.correct? # passes unless guess.corrct returns true
+    assert_equal false, guess.correct? # should pass (& does)
+    refute_equal true, guess.correct? # should pass (& does)
+    # a different way to say the above:
+    # assert guess.correct? # fail unless guess.correct returns true
+    # refute guess.correct? # passes unless guess.correct returns true
   end
 
   # test if a string response is made into an array
