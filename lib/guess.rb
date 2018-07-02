@@ -7,16 +7,24 @@ class Guess
 
   def initialize(response, card)
     @response = response # instance variable
-    @card = card
+    @card = card # instance variable
   end
 
+  # need to compare parts of the response string to card instance variables
+  # split response string into an array
   def response_to_array
     response.split(" ")
   end
 
   def correct?
     if response_to_array[0] == card.value && response_to_array[-1] == card.suit
-      true 
+      true
+    end
+  end
+
+  def feedback
+    if response_to_array[0] == card.value && response_to_array[-1] == card.suit
+      p "Correct!" #puts doesn't work here
     end
   end
 end
