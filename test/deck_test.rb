@@ -1,6 +1,6 @@
 # GOAL 2.1: make a deck class test
-require "./lib/deck"
-require "./lib/card" # new
+require "./lib/deck" # links to reader file for deck
+require "./lib/card" # links to reader file for card
 require "minitest/autorun"
 require "minitest/pride"
 require 'pry'
