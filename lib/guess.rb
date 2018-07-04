@@ -1,3 +1,4 @@
+require "./lib/card"
 # GOAL 1.3: make a guess Object
 # GOAL 1.4: initialize it with a value & a suit
 class Guess
@@ -25,7 +26,7 @@ class Guess
     end
   end
 
-  # adds feedback as whether guess is correct or incorrect 
+  # adds feedback as whether guess is correct or incorrect
   def feedback
     if response_to_array[0] == card.value && response_to_array[-1] == card.suit
       return "Correct!" #puts doesn't work here

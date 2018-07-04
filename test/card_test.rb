@@ -1,7 +1,7 @@
 require "./lib/card" # links this test file to the definitions file
 require "minitest/autorun"
 require "minitest/pride" # for color
-require 'pry'
+
 class CardTest < Minitest::Test
 
   # test for the instance of card1 in Card

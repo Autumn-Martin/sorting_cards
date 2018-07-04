@@ -1,9 +1,8 @@
 # GOAL 2.1: make a deck class test
 require "./lib/deck" # links to reader file for deck
-require "./lib/card" # links to reader file for card
 require "minitest/autorun"
 require "minitest/pride"
-require 'pry'
+
 class Deck_Test < Minitest::Test
   # test if you can create an instance of deck
   # this should error without a deck class (uninitialized constant error)
