@@ -103,4 +103,15 @@ class RoundTest < Minitest::Test
     round.record_guess({value: "Jack", suit: "Diamonds"})
     assert_equal "Incorrect.", round.guesses.last.feedback
   end
+
+  def test_for_number_correct_guesses_after_1_wrong_guess_and_1_correct_guess
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess({value: "3", suit: "Hearts"})
+    round.record_guess({value: "Jack", suit: "Diamonds"})
+    assert_equal 1, round.number_correct 
+  end
+
 end
