@@ -57,4 +57,79 @@ class RoundTest < Minitest::Test
     assert_equal 1, round.guesses.count
   end
 
+  def test_for_getting_feedback_for_correct_guesses
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess({value: "3", suit: "Hearts"})
+    assert_equal "Correct!", round.guesses.first.feedback # passes!
+  end
+
+  def test_for_number_of_correct_guesses
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess({value: "3", suit: "Hearts"})
+    assert_equal 1, round.number_correct
+  end
+
+  def test_for_getting_the_next_current_card
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess({value: "3", suit: "Hearts"})
+    assert_equal card_2, round.current_card
+  end
+
+  def test_for_recording_a_second_guess
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess({value: "3", suit: "Hearts"})
+    round.record_guess({value: "Jack", suit: "Diamonds"})
+    assert_equal 2, round.guesses.count
+  end
+
+  def test_for_feedback_on_incorrect_second_guess
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess({value: "3", suit: "Hearts"})
+    round.record_guess({value: "Jack", suit: "Diamonds"})
+    assert_equal "Incorrect.", round.guesses.last.feedback
+  end
+
+  def test_for_number_correct_guesses_after_1_wrong_guess_and_1_correct_guess
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess({value: "3", suit: "Hearts"})
+    round.record_guess({value: "Jack", suit: "Diamonds"})
+    assert_equal 1, round.number_correct
+  end
+
+  def test_for_the_percent_of_correct_guesses_after_1_guess_that_is_correct
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess({value: "3", suit: "Hearts"})
+    assert_equal 1, round.percent_correct
+  end
+
+  def test_for_the_percent_of_correct_guesses_after_1_guess_that_is_correct
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess({value: "3", suit: "Hearts"})
+    round.record_guess({value: "4", suit: "Hearts"})
+    assert_equal 50, round.percent_correct
+  end
 end
