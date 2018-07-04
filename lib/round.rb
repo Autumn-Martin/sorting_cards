@@ -28,8 +28,10 @@ class Round
 
     if current_guess.correct? == true
       @number_correct += 1
+      @deck.cards.shift
     else
       @number_correct += 0
+      @deck.cards
     end
 
     return current_guess
