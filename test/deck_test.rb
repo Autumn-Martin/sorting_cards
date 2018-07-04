@@ -24,7 +24,7 @@ class Deck_Test < Minitest::Test
     assert_equal [card_1, card_2, card_3], deck.cards
   end
 
- # ---------CODE WORKS UP TO THIS POINT--------#
+
  # test if can return the number of cards in the deck
   def test_can_return_how_many_cards_in_the_deck
     card_1 = Card.new("3","Hearts")
@@ -32,5 +32,23 @@ class Deck_Test < Minitest::Test
     card_3 = Card.new("5", "Diamonds")
     deck = Deck.new([card_1, card_2, card_3])
     assert_equal 3, deck.count
+  end
+
+ # ---------CODE WORKS UP TO THIS POINT--------#
+  def test_sort_method
+    card_1 = Card.new("4","Hearts")
+    card_2 = Card.new("Jack", "Clubs")
+    card_3 = Card.new("5", "Diamonds")
+    card_4 = Card.new("Ace", "Spades")
+    card_5 = Card.new("Ace", "Diamonds")
+    deck = Deck.new([card_1, card_2, card_3, card_4, card_5])
+    assert_equal [card_1, card_3, card_2, card_5, card_4], deck.sort
+  end
+
+
+  def test_total_value_method
+    card1 = Card.new("Ace", "Spades")
+    deck = Deck.new([card])
+    assert_equal 14.4, deck.total_value
   end
 end
