@@ -2,11 +2,14 @@ require "./lib/deck"
 # make a class called Round
 class Round
   # will need an attr_reader
-  attr_reader :deck, :guesses
+  attr_reader   :deck,
+                :guesses,
+                :number_correct
   # initialize
   def initialize(deck)
     @deck = deck
     @guesses = []
+    @number_correct = 0
   end
 
   def current_card
@@ -22,6 +25,22 @@ class Round
   def record_guess(cards)
     current_guess = Guess.new("#{cards[:value]} of #{cards[:suit]}", current_card)
     @guesses << current_guess
-    current_guess
+
+    if current_guess.correct? == true
+      @number_correct += 1
+    else
+      @number_correct += 0
+    end
+
+    return current_guess
   end
+
+  # def number_correct
+  #
+  #   if current_guess.correct? == true
+  #     number_correct += 1
+  #   else
+  #     number_correct += 0
+  #   end
+  # end
 end
