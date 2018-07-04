@@ -63,7 +63,7 @@ class RoundTest < Minitest::Test
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
     round.record_guess({value: "Jack", suit: "Diamonds"})
-    assert_equal "Correct!", round.guesses.feedback
-  end 
+    assert_equal "Correct!", round.guesses.first.feedback
+  end
 
 end
