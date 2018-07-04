@@ -22,4 +22,8 @@ class CardTest < Minitest::Test
     assert_equal "Spades", card1.suit
   end
 
+  def test_total_value_method
+    card1 = Card.new("Ace", "Spades")
+    assert_equal 14.4, card1.total_value
+  end
 end
