@@ -28,7 +28,7 @@ class Round
 
     if current_guess.correct? == true
       @number_correct += 1
-      @deck.cards.shift
+      @deck.cards.shift # switches to the next card when the current guess is correct
     else
       @number_correct += 0
       @deck.cards
