@@ -1,8 +1,7 @@
 require "./lib/guess"
-require "./lib/card"
 require "minitest/autorun"
 require "minitest/pride"
-require 'pry'
+
 class GuessTest < Minitest::Test
 # first testing for correct guesses to be handled properly
   # test for instance of guess in class Guess

@@ -1,7 +1,7 @@
 require "./lib/round"
 require "minitest/autorun"
 require "minitest/pride"
-require 'pry'
+
 
 class Round_Test < Minitest::Test
   # create a test for an instance of round
