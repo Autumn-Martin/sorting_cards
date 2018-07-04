@@ -10,10 +10,18 @@ class Round
   end
 
   def current_card
-    @deck.cards.first  
+    @deck.cards.first
   end
-  # add method for guesses
-  # def guesses # another way to add a method for guesses
-  #   guesses = []
+
+  # {value: "Jack", suit: "Diamonds"}
+  # def current_guess
+  #   current_guess = Guess("#{value:} of #{suit:}", card)
+  #   guesses << current_guess
   # end
+
+  def record_guess(cards)
+    current_guess = Guess.new("#{cards[:value]} of #{cards[:suit]}", current_card)
+    @guesses << current_guess
+    current_guess
+  end
 end
