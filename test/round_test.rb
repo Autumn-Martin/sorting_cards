@@ -24,7 +24,7 @@ class RoundTest < Minitest::Test
   end
 
   # test for #guesses method
-  def test_guesses_method_on_round
+  def test_for_an_empty_array_when_no_guesses_are_made
     card_1 = Card.new("3","Hearts")
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
@@ -32,7 +32,7 @@ class RoundTest < Minitest::Test
     assert_equal [], round.guesses
   end
 
-  def test_for_current_card
+  def test_for_current_card_to_be_first_card_on_the_deck
     card_1 = Card.new("3","Hearts")
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
@@ -40,7 +40,7 @@ class RoundTest < Minitest::Test
     assert_equal deck.cards.first, round.current_card
   end
 
-  def test_for_record_guess
+  def test_for_recording_first_guess
     card_1 = Card.new("3","Hearts")
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
@@ -48,7 +48,7 @@ class RoundTest < Minitest::Test
     assert_instance_of Guess, round.record_guess({value: "Jack", suit: "Diamonds"})
   end
 
-  def test_for_count_guesses
+  def test_for_number_of_guesses_after_1_guess
     card_1 = Card.new("3","Hearts")
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
