@@ -34,8 +34,7 @@ class Deck_Test < Minitest::Test
     assert_equal 3, deck.count
   end
 
- # ---------CODE WORKS UP TO THIS POINT--------#
-  def test_sort_method
+  def test_if_deck_is_sorted
     card_1 = Card.new("4","Hearts")
     card_2 = Card.new("Jack", "Clubs")
     card_3 = Card.new("5", "Diamonds")

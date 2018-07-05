@@ -7,7 +7,7 @@ class GuessTest < Minitest::Test
   # test for instance of guess in class Guess
   # can create a guess object
   # this test should pass, & does
-  def test_can_create_an_instance_of_guess
+  def test_can_create_an_instance_of_guess_when_correct
     card = Card.new("10","Hearts")
     guess = Guess.new("10 of Hearts",card)
     assert_instance_of Guess, guess
@@ -15,14 +15,14 @@ class GuessTest < Minitest::Test
 
   # test if response method assigns appropriately
   # this test should pass, & does
-  def test_if_guess_has_a_response # response = attribute
+  def test_if_guess_has_a_response_when_correct # response = attribute
     card = Card.new("10","Hearts")
     guess = Guess.new("10 of Hearts",card)
     assert_equal "10 of Hearts", guess.response
   end
   # test if card method assigns appropriately
   # this test should pass, & does
-  def test_if_guess_has_a_card_method
+  def test_if_guess_has_a_card_method_when_correct
     card = Card.new("10","Hearts")
     guess = Guess.new("10 of Hearts",card)
     # p card # looking at what card is assigned
@@ -32,7 +32,7 @@ class GuessTest < Minitest::Test
 
   # testing method correct
   # this test should pass, & does
-  def test_if_guess_is_correct
+  def test_if_guess_is_correct_when_correct
     card = Card.new("10","Hearts")
     guess = Guess.new("10 of Hearts",card)
     assert guess.correct? # fail unless guess.correct returns true
@@ -40,7 +40,7 @@ class GuessTest < Minitest::Test
 
   # test if a string response is made into an array
   # this test should pass, & does
-  def test_if_response_becomes_an_array
+  def test_if_response_becomes_an_array_when_correct
     card = Card.new("10","Hearts")
     guess = Guess.new("10 of Hearts",card)
     assert_equal ["10", "of", "Hearts"], guess.response_to_array
@@ -48,7 +48,7 @@ class GuessTest < Minitest::Test
 
   # check if feedback "Correct!" is given when the guess matches the card
   # this test should pass, & does
-  def test_for_feedback
+  def test_for_feedback_when_correct
     card = Card.new("10","Hearts")
     guess = Guess.new("10 of Hearts",card)
     assert_equal "Correct!", guess.feedback
@@ -57,7 +57,7 @@ class GuessTest < Minitest::Test
 # now testing for incorrect guesses to be handled correctly
   # test for an object to be created
   # this test should pass, & does
-  def test_can_create_an_instance_of_guess
+  def test_can_create_an_instance_of_guess_when_correct
     card = Card.new("Queen","Clubs")
     guess = Guess.new("2 of Diamonds",card)
     assert_instance_of Guess, guess
@@ -65,7 +65,7 @@ class GuessTest < Minitest::Test
 
   # test if response method assigns appropriately
   # this test should pass, & does
-  def test_if_guess_has_a_response # response = attribute
+  def test_if_guess_has_a_response_when_incorrect # response = attribute
     card = Card.new("Queen","Clubs")
     guess = Guess.new("2 of Diamonds",card)
     assert_equal "2 of Diamonds", guess.response
@@ -73,7 +73,7 @@ class GuessTest < Minitest::Test
 
   # test if card method assigns appropriately
   # this test should pass, & does
-  def test_if_guess_has_a_card_method
+  def test_if_guess_has_a_card_method_when_incorrect
     card = Card.new("Queen","Clubs")
     guess = Guess.new("2 of Diamonds",card)
     # p card # looking at what card is assigned
@@ -83,7 +83,7 @@ class GuessTest < Minitest::Test
 
   # testing method correct
   # this test should fail, & does
-  def test_if_guess_is_correct
+  def test_if_guess_is_correct_when_incorrect
     card = Card.new("Queen","Clubs")
     guess = Guess.new("2 of Diamonds",card)
     assert_equal false, guess.correct? # should pass (& does)
@@ -95,7 +95,7 @@ class GuessTest < Minitest::Test
 
   # test if a string response is made into an array
   # this test should pass, & does
-  def test_if_response_becomes_an_array
+  def test_if_response_becomes_an_array_when_incorrect
     card = Card.new("Queen","Clubs")
     guess = Guess.new("2 of Diamonds",card)
     assert_equal ["2", "of", "Diamonds"], guess.response_to_array
@@ -103,7 +103,7 @@ class GuessTest < Minitest::Test
 
   # check if feedback "Correct!" is given when the guess matches the card
   # this test should currently fail, & does
-  def test_for_feedback
+  def test_for_feedback_when_incorrect
     card = Card.new("Queen","Clubs")
     guess = Guess.new("2 of Diamonds",card)
     assert_equal "Incorrect.", guess.feedback # this should pass (&does)
