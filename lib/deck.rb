@@ -20,20 +20,20 @@ class Deck
   def sort
 
     deck_size = @cards.length
-    deck = @cards.total_value
+
 
     loop do
       sorted = false
 
       (deck_size-1).times do |sort|
-        if deck[sort] > deck[sort+1]
-          deck[sort], deck[sort+1] = deck[sort+1], deck[sort]
+        if cards[sort].total_value > cards[sort+1].total_value
+          cards[sort], cards[sort+1] = cards[sort+1], cards[sort]
           sorted = true
         end
       end
       break if sorted == false # or not sorted
     end
-    card_sort
+    return cards 
   end
 
 

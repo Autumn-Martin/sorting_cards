@@ -45,10 +45,4 @@ class Deck_Test < Minitest::Test
     assert_equal [card_1, card_3, card_2, card_5, card_4], deck.sort
   end
 
-
-  def test_total_value_method
-    card1 = Card.new("Ace", "Spades")
-    deck = Deck.new([card])
-    assert_equal 14.4, deck.total_value
-  end
 end
