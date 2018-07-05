@@ -34,7 +34,7 @@ class Card
                 "Hearts"=> 0.3,
                 "Spades"=> 0.4
               }
-    total_value = card_values[value] + card_values[suit]
+    total_value = card_values[@value] + card_values[@suit]
     return total_value
   end
 
